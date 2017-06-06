@@ -1,0 +1,24 @@
+{
+  "name": "guesswordapp",
+  "version": "1.0.0",
+  "description": "Word Guess Game.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shirishk/guesswordapp.git"
+  },
+  "keywords": [
+    "Word",
+    "Game",
+    "Guess"
+  ],
+  "author": "Shirish Kawatkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shirishk/guesswordapp/issues"
+  },
+  "homepage": "https://github.com/shirishk/guesswordapp#readme"
+}
