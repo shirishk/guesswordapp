@@ -1,0 +1,60 @@
+<style>
+		div.solid {
+			background-color: lightblue;
+			padding-top: 250px;
+			padding-right: 50px;
+			padding-bottom: 250px;
+			padding-left: 50px;
+			background-size: cover;
+			background-position: 50% 50%;
+			background-repeat: none;
+			background-image: url("./images/background/1024.png");
+			width: 100%;
+			height: auto;
+		}
+	</style>
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+	<title>Guess Word</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="app.js"></script>
+	<link rel="icon" href="fevicon.ico">
+	
+</head>
+
+<body ng-app="GuessWordApp" ng-controller="GameController">
+	
+	<div class="solid">
+		<img src="./images/background/1024.png" class="responsive-image">
+		<p id="text">Guesses Left :: {{guesses}}</p>
+		<div>
+			Guesses Left :: {{guesses}}
+		</div>
+		<div> 
+			Your Incorrect Guesses :: 
+			<span ng-repeat = "letter in incorrectLettersChosen">
+				{{letter}}
+			</span>	
+		</div>
+		<div> 
+			Your correct Guesses :: 
+			<span ng-repeat = "letter in correctLettersChosen">
+				{{letter}}
+			</span>	
+		</div>
+		<div> 
+			You have to guess :: {{displayWord}} 
+		</div>
+		<div>
+			<div>
+				<input type="text" name="guess" ng-model="input.letter">
+				<button ng-click = "letterChosen()">Submit</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

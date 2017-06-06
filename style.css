@@ -1,0 +1,91 @@
+.responsive-image{
+    width: 100%;
+    background-size: 100% 100%;
+    background-color: lightblue;
+}
+
+.summary {
+  list-style-type: none;
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+} 
+
+.transbox {
+  background: transparent;
+  color: white;
+}
+
+
+/*and finally, we serve for every view-port the right image:*/
+
+/* Retina display */
+@media screen and (min-width: 1024px){
+    .responsive-image{
+        background-image: url('./images/background/1366.png');
+    }
+    .summary {
+      font-size: 48px;
+    }
+    .transbox {
+      font-size: 48px;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 980px) and (max-width: 1024px){
+    .responsive-image{
+        background-image: url('./images/background/1024.png');
+    }
+    .summary {
+      font-size: 36px;
+    }
+    .transbox {
+      font-size: 36px;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 760px) and (max-width: 980px){
+    .responsive-image{
+        background-image: url('./images/background/980.png');
+    }
+    .summary {
+      font-size: 20px;
+    }
+    .transbox {
+      font-size: 20px;
+    }
+}
+
+/* Mobile HD */
+@media screen and (min-width: 350px) and (max-width: 760px){
+    .responsive-image{
+        background-image: url('./images/background/760.png');
+    }
+    .summary {
+      font-size: 14px;
+    }
+    .transbox {
+      font-size: 14px;
+    }
+}
+
+/* Mobile LD */
+@media screen and (max-width: 350px){
+    .responsive-image{
+        background-image: url('./images/background/350.png');
+    }
+    .summary {
+      font-size: 8px;
+    }
+    .transbox {
+      font-size: 8px;
+    }
+} 
+
