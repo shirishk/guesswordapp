@@ -2,9 +2,8 @@
   "name": "guesswordapp",
   "version": "1.0.0",
   "description": "Word Guess Game.",
-  "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "http-server"
   },
   "repository": {
     "type": "git",
