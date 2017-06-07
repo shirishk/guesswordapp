@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/shirishk/guesswordapp/issues"
   },
-  "homepage": "https://github.com/shirishk/guesswordapp#readme"
+  "homepage": "https://github.com/shirishk/guesswordapp#readme",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
 }
