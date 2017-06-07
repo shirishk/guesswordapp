@@ -4,6 +4,7 @@
   "description": "Word Guess Game.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
   },
   "repository": {
     "type": "git",
