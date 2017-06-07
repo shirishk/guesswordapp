@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Guess Country</title>
+	<title>Guess Word</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./app.js"></script>
 	<script src="./sweetalert.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="./sweetalert.css">
@@ -17,9 +17,9 @@
 		<img src="./images/background/1024.png" class="responsive-image">
 		<ul class="summary">
 			
-			<li>You have to guess the contry</li>
+			<li>You have to guess the below word</li>
 			<li> {{displayWord}} </li>
-			<li><form ng-keypress = "letterChosen()"><label>Enter Alphabet :: </label><input type="text" 
+			<li><form ng-keypress = "($event.charCode==13)? letterChosen() : return"><label>Enter Alphabet :: </label><input type="text" 
 				style="text-transform:uppercase" autocomplete="off" maxlength="1" size="1" class="transbox" 
 				name="guess" ng-model="input.letter"></form></li>			
 			<li>Correct Guesses :: 

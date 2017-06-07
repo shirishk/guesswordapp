@@ -1,7 +1,7 @@
 var app = angular.module("GuessWordApp",[]);
 app.controller("GameController",['$scope','$timeout',function($scope,$timeout){
 	
-	var words = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", 
+	var cities = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", 
 	"Antarctica", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", 
 	"Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", 
 	"Bermuda", "Bhutan", "Bolivia", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", 
@@ -23,6 +23,52 @@ app.controller("GameController",['$scope','$timeout',function($scope,$timeout){
 	"Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tokelau", "Tonga", "Tunisia", "Turkey", 
 	"Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", 
 	"Vietnam", "Yemen", "Zambia", "Zimbabwe" ];
+
+	var words = ["about", "above", "act", "add", "address", "after", "again", "air", "all", "almost", 
+	"alone", "also", "always", "am", "an", "and", "animal", "answer", "ant", "any", "ape", "apple", 
+	"are", "arm", "art", "as", "ask", "at", "ate", "away", "ax", "baby", "back", "bad", "ball", "ban", 
+	"barn", "bat", "bay", "be", "beach", "bead", "bear", "because", "bed", "bee", "been", "beep", "before", 
+	"began", "begin", "bell", "bend", "bent", "best", "better", "big", "bird", "birthday", "black", "blue", 
+	"boo", "book", "boss", "both", "boy", "bring", "brown", "bug", "bull", "bunny", "bus", "but", "buy", 
+	"by", "cab", "cake", "calf", "call", "came", "camel", "can", "candy", "cap", "car", "care", "carry", 
+	"cat", "chicken", "child", "children", "Christmas", "church", "circle", "city", "clean", "close", 
+	"cold", "color", "colt", "come", "coming", "cookie", "cop", "cost", "could", "count", "cow", "crab", 
+	"crayon", "cry", "cub", "cup", "cut", "dad", "daddy", "dam", "dark", "day", "deer", "did", "dinosaur", 
+	"do", "dog", "doll", "donkey", "door", "dot", "dove", "down", "draw", "dream", "dress", "drive", "drop", 
+	"duck", "Easter", "easy", "eat", "eel", "egg", "eight", "elephant", "elk", "end", "ever", "every", "eye", 
+	"face", "fad", "fall", "family", "fan", "farm", "farmer", "father", "fed", "feel", "feeling", "few", 
+	"fight", "fill", "find", "fire", "fireman", "fish", "fit", "fire", "floor", "flower", "fly", "food", 
+	"foot", "for", "found", "four", "fox", "free", "freely", "frog", "from", "full", "fun", "fur", "game", 
+	"gap", "garden", "gave", "gee", "get", "ghost", "gift", "giraffe", "girl", "give", "glad", "go", 
+	"goat", "gold", "golden", "goldfish", "good", "goose", "got", "grass", "great", "green", "grow", "gum", 
+	"gun", "had", "hair", "ham", "hand", "happy", "hard", "has", "hat", "have", "hay", "he", "head", "health", 
+	"hear", "heard", "heart", "hello", "help", "hen", "her", "here", "hers", "hey", "hi", "high", "hill", "him", 
+	"hippo", "his", "hit", "hog", "hole", "holiday", "home", "hop", "hope", "horse", "hot", "house", "how", 
+	"hurt", "I", "ice", "if", "in", "is", "it", "jam", "jar", "jet", "job", "juice", "jump", "keep", "key", 
+	"kid", "kind", "king", "kiss", "kite", "kitten", "koala", "lad", "lamb", "land", "lap", "large", "lass", 
+	"last", "late", "led", "leg", "lend", "let", "light", "like", "line", "lion", "lit", "little", "log", 
+	"look", "lose", "loss", "lost", "lot", "love", "low", "lucky", "mad", "made", "make", "making", "mall", 
+	"man", "mat", "may", "me", "meet", "meow", "miss", "mom", "mommy", "money", "monkey", "moose", "more", 
+	"mother", "mouse", "move", "music", "my", "name", "nap", "neat", "never", "new", "next", "nine", "no", 
+	"not", "now", "number", "nurse", "nut", "of", "off", "oil", "OK", "old", "on", "one", "only", "open", 
+	"or", "orange", "our", "out", "over", "owl", "ox", "pad", "pal", "pan", "panda", "paper", "party", "pass", 
+	"pat", "pay", "people", "picture", "pie", "pig", "pin", "pizza", "plant", "plate", "play", "please", "pole", 
+	"pony", "poor", "pop", "pot", "present", "price", "pull", "pumpkin", "pup", "puppy", "purple", "put", "quack", 
+	"queen", "quiet", "rabbit", "ram", "ran", "rat", "read", "red", "reindeer", "rent", "rich", "ride", "right", 
+	"rip", "river", "road", "rob", "robin", "robot", "rock", "rocket", "room", "round", "row", "rule", "run", 
+	"sad", "safe", "said", "same", "saw", "say", "school", "sea", "seal", "see", "sell", "send", "sent", "set", 
+	"seven", "she", "sheep", "shoe", "shy", "sick", "side", "sit", "six", "skunk", "sky", "sleep", "small", "snow", 
+	"snowball", "snowman", "so", "soft", "some", "son", "song", "soon", "spider", "spring", "stand", "star", 
+	"stick", "sticker", "sticky", "stood", "stop", "store", "story", "strong", "summer", "sun", "sunny", "sure", 
+	"sweet", "swim", "tractor", "tab", "table", "tag", "take", "talk", "tall", "tan", "tap", "tax", "tell", 
+	"ten", "tend", "than", "that", "the", "their", "them", "then", "these", "they", "thing", "things", "this", 
+	"three", "tiger", "to", "today", "toe", "told", "top", "town", "toy", "train", "tree", "tricycle", "tried", 
+	"true", "try", "tummy", "turkey", "TV", "two", "under", "up", "us", "use", "used", "van", "very", "wait", 
+	"walk", "wall", "want", "was", "water", "wave", "wax", "way", "we", "wed", "week", "well", "went", "were", 
+	"wet", "what", "when", "white", "White ", "House", "who", "why", "will", "win", "winter", "wish", "witch", 
+	"with", "wolf", "woman", "women", "word", "work", "worm", "wow", "write", "yard", "yea", "yell", "yellow", 
+	"yes", "you", "your", "zebra", "zero", "zip", "zipper", "zoo"];
+	
 	$scope.incorrectLettersChosen=[];
 	$scope.correctLettersChosen=[];
 	$scope.guesses = 6;
@@ -44,8 +90,8 @@ app.controller("GameController",['$scope','$timeout',function($scope,$timeout){
 		$scope.displayWord = '';
 
 		selectedWord = selectRandomWord();
-		var tempDisplayWord = '';
-		for (var i =0; i < selectedWord.length; i++){
+		var tempDisplayWord = selectedWord[0].toUpperCase();
+		for (var i =1; i < selectedWord.length; i++){
 			tempDisplayWord +='*';
 		}
 		$scope.displayWord = tempDisplayWord;
@@ -77,8 +123,8 @@ app.controller("GameController",['$scope','$timeout',function($scope,$timeout){
 		if(correct){
 			$scope.correctLettersChosen.push($scope.input.letter.toUpperCase());
 		}else{
-			$scope.guesses--;
 			$scope.incorrectLettersChosen.push($scope.input.letter.toUpperCase());
+			$scope.guesses= $scope.guesses - 1;
 		}
 		$scope.input.letter="";
 
