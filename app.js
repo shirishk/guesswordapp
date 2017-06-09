@@ -68,7 +68,11 @@ app.controller("GameController",['$scope','$timeout',function($scope,$timeout){
 	"wet", "what", "when", "white", "White ", "House", "who", "why", "will", "win", "winter", "wish", "witch", 
 	"with", "wolf", "woman", "women", "word", "work", "worm", "wow", "write", "yard", "yea", "yell", "yellow", 
 	"yes", "you", "your", "zebra", "zero", "zip", "zipper", "zoo"];
+
 	
+	$scope.score = 0;
+	$scope.attempt = 1;
+	$scope.counter = 60;
 	$scope.incorrectLettersChosen=[];
 	$scope.correctLettersChosen=[];
 	$scope.guesses = 6;
@@ -76,6 +80,34 @@ app.controller("GameController",['$scope','$timeout',function($scope,$timeout){
 	$scope.input = {
 		letter : ''
 	}
+	$scope.onTimeout = function(){
+		if ($scope.counter > 0){$scope.counter-- };
+		mytimeout = $timeout($scope.onTimeout,1000);
+		if($scope.counter == 0){
+		swal({
+			title: "Congratulations!",
+			text: "You scored " +$scope.score+" points in "+60*$scope.attempt+" seconds.",
+			type: "success",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",confirmButtonText: "Play Again",
+			cancelButtonText: "Game Over",
+			closeOnConfirm: true,
+			closeOnCancel: true, 
+		}, 
+		function(isConfirm){ 
+			if (isConfirm) {
+				$scope.attempt++;
+				$scope.counter = 60;
+				newGame();
+			} else {				
+				$scope.attempt = 1;
+				$scope.score = 0;
+				newGame();
+				}
+		});
+		}
+	}
+	var mytimeout = $timeout($scope.onTimeout,1000);		
 
 	var selectRandomWord = function(){
 		var index = Math.floor(Math.random()*words.length);
@@ -88,9 +120,12 @@ app.controller("GameController",['$scope','$timeout',function($scope,$timeout){
 		$scope.correctLettersChosen = [];
 		$scope.guesses = 6;
 		$scope.displayWord = '';
+		
+		if($scope.counter > 0){
+			 selectedWord = selectRandomWord();}
 
-		selectedWord = selectRandomWord();
 		var tempDisplayWord = selectedWord[0].toUpperCase();
+		// console.log(selectedWord);
 		for (var i =1; i < selectedWord.length; i++){
 			tempDisplayWord +='*';
 		}
@@ -137,6 +172,8 @@ app.controller("GameController",['$scope','$timeout',function($scope,$timeout){
 
 		if($scope.displayWord.indexOf("*")==-1){
 			$timeout(function(){
+				$scope.score = $scope.score + selectedWord.length -1;
+				// console.log($scope.score)
 				swal("Good job!", selectedWord.toUpperCase(), "success");
 				newGame();
 			},500)

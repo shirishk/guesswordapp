@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Guess Word</title>
 	<link rel="stylesheet" href="style.css">
@@ -12,11 +13,9 @@
 </head>
 
 <body ng-app="GuessWordApp" ng-controller="GameController">
-	<div class="solid">
-		
+	<div class="solid">		
 		<img src="./images/background/1024.png" class="responsive-image">
-		<ul class="summary">
-			
+		<ul class="summary">			
 			<li>You have to guess the below word</li>
 			<li> {{displayWord}} </li>
 			<li><form ng-keypress = "($event.charCode==13)? letterChosen() : return"><label>Enter Alphabet :: </label><input type="text" 
@@ -26,10 +25,12 @@
 				<span ng-repeat = "letter in correctLettersChosen">
 					{{letter}}</span></li>	
 			<li>Incorrect Guesses :: 
-			<span ng-repeat = "letter in incorrectLettersChosen">
-				{{letter}}</span></li>
-				<li>Guesses Left :: {{guesses}}</li>
-		</ul>					
+				<span ng-repeat = "letter in incorrectLettersChosen">
+					{{letter}}</span></li>
+			<li>Guesses Left :: {{guesses}}</li>
+			<li>Total Score :: {{score}}</li>
+			<li>Time left in seconds :: {{counter}}</li>
+		</ul>						
 	</div>
 </body>
 </html>

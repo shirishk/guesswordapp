@@ -30,10 +30,10 @@
         background-image: url('./images/background/1366.png');
     }
     .summary {
-      font-size: 48px;
+      font-size: 30px;
     }
     .transbox {
-      font-size: 48px;
+      font-size: 30px;
     }
 }
 
@@ -43,10 +43,10 @@
         background-image: url('./images/background/1024.png');
     }
     .summary {
-      font-size: 36px;
+      font-size: 22px;
     }
     .transbox {
-      font-size: 36px;
+      font-size: 22px;
     }
 }
 
@@ -56,10 +56,10 @@
         background-image: url('./images/background/980.png');
     }
     .summary {
-      font-size: 20px;
+      font-size: 14px;
     }
     .transbox {
-      font-size: 20px;
+      font-size: 14px;
     }
 }
 
@@ -69,10 +69,10 @@
         background-image: url('./images/background/760.png');
     }
     .summary {
-      font-size: 14px;
+      font-size: 10px;
     }
     .transbox {
-      font-size: 14px;
+      font-size: 10px;
     }
 }
 
